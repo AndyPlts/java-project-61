@@ -15,11 +15,19 @@ public class Engine {
     }
 
     public static void playing() {
+    // Счётчик побед в играх, использующий номер игры из класса "App" для запуска нужной игры
         while (counter != 3) {
-            if (App.number == 2) {
-                Game.logicIsEven();
+            switch (App.number) {
+                case 2:
+                    Game.logicIsEven();
+                    break;
+                case 3:
+                    Game.logicCalc();
+                    break;
+                default:
+                    break;
             }
         }
-    System.out.println("Congratulations, " + name + "!");
+        System.out.println("Congratulations, " + name + "!");
     }
 }
