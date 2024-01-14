@@ -27,6 +27,9 @@ public class Engine {
                 case 4:
                     Game.logicGCD();
                     break;
+                case 5:
+                    Game.logicProgression();
+                    break;
                 default:
                     break;
             }
