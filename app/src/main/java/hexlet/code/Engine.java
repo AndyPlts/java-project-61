@@ -24,10 +24,32 @@ public class Engine {
                 case 3:
                     Game.logicCalc();
                     break;
+                case 4:
+                    Game.logicGCD();
+                    break;
                 default:
                     break;
             }
         }
         System.out.println("Congratulations, " + name + "!");
+    }
+
+    public static void positiveAnswer() {
+        System.out.println("Correct!");
+        Engine.counter++;
+    }
+
+    public static void negativeAnswer(String answer, String answerOfPlayer) {
+        System.out.println("'" + answerOfPlayer + "' is wrong answer "
+                + ";(. Correct answer '" + answer + "'");
+        System.out.println("Let's try again, " + name);
+        Engine.counter = 0;
+    }
+
+    public static void negativeAnswer(int answer, int answerOfPlayer) {
+        System.out.println("'" + answerOfPlayer + "' is wrong answer "
+                + ";(. Correct answer '" + answer + "'");
+        System.out.println("Let's try again, " + name);
+        Engine.counter = 0;
     }
 }

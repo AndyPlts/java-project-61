@@ -7,7 +7,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n0 - Exit");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n0 - Exit");
         System.out.print("Your choice: ");
         number = scanner.nextInt();
 
@@ -23,6 +23,9 @@ public class App {
                 break;
             case 3:
                 Game.beginCalc();
+                break;
+            case 4:
+                Game.beginGCD();
                 break;
             default:
                 break;

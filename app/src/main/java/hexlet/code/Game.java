@@ -22,22 +22,16 @@ public class Game {
         System.out.println("Question: " + number);
         System.out.print("Your answer: ");
         String answer = scanner.next();
+        String positiveAnswer = "yes";
+        String negativeAnswer = "no";
         if ((number % 2 == 0) && (answer.equals("yes"))) {
-            System.out.println("Correct!");
-            Engine.counter++;
+            Engine.positiveAnswer();
         } else if ((number % 2 != 0) && (answer.equals("no"))) {
-            System.out.println("Correct!");
-            Engine.counter++;
+            Engine.positiveAnswer();
         } else if (number % 2 == 0) {
-            System.out.println("'" + answer + "' is wrong answer "
-                    + ";(. Correct answer 'yes'");
-            System.out.println("Let's try again, " + Engine.name);
-            Engine.counter = 0;
+            Engine.negativeAnswer(positiveAnswer, answer);
         } else {
-            System.out.println("'" + answer + "' is wrong answer "
-                    + ";(. Correct answer 'no'");
-            System.out.println("Let's try again, " + Engine.name);
-            Engine.counter = 0;
+            Engine.negativeAnswer(negativeAnswer, answer);
         }
     }
 
@@ -52,8 +46,8 @@ public class Game {
         // Установка диапазона чисел и количества выполняемых операций
         int minNumber = 0;
         int maxNumber = 100;
-        int minOperation = 1;
-        int maxOperation = 3;
+        final int minOperation = 1;
+        final int maxOperation = 3;
         int resultOfCount = 0;
         // Вывод номера операции через метод вывода случайного числа
         // 1 - сложение, 2 - вычитание, 3 - умножение
@@ -72,13 +66,43 @@ public class Game {
         }
         int answerOfPlayer = scanner.nextInt();
         if (resultOfCount == answerOfPlayer) {
-            Engine.counter++;
-            System.out.println("Correct!");
+            Engine.positiveAnswer();
         } else {
-            Engine.counter = 0;
-            System.out.println("'" + answerOfPlayer + "' is wrong answer "
-                    + ";(. Correct answer '" + resultOfCount + "'");
-            System.out.println("Let's try again, " + Engine.name);
+            Engine.negativeAnswer(resultOfCount, answerOfPlayer);
+        }
+    }
+
+    public static void beginGCD() {
+        Engine.greet();
+        System.out.println("Find the greatest common divisor of given numbers");
+        Engine.playing();
+    }
+
+    public static void logicGCD() {
+        Scanner scanner = new Scanner(System.in);
+        // Установка диапазона чисел, задействованных в игре
+        int minNumber = 1;
+        int maxNumber = 100;
+        int result = 0;
+        // Определение двух чисел через метод рандомных чисел и последующее определение меньшего из них
+        int firstNumber = getRandomNumber(minNumber, maxNumber);
+        int secondNumber = getRandomNumber(minNumber, maxNumber);
+        int smallNumber = Math.min(firstNumber, secondNumber);
+        // Определение наибольшего делителя путём перебирания всех чисел до наименьшего из двух выбранных
+        for (var i = 1; i <= smallNumber; i++) {
+            if (firstNumber % i == 0 && secondNumber % i == 0) {
+                result = i;
+            }
+        }
+        // Запрос ответа у игрока
+        System.out.println("Question: " + firstNumber + " " + secondNumber);
+        System.out.print("Your answer: ");
+        int answerOfPlayer = scanner.nextInt();
+        // Сравнение эталонного ответа и ответа игрока
+        if (result == answerOfPlayer) {
+            Engine.positiveAnswer();
+        } else {
+            Engine.negativeAnswer(result, answerOfPlayer);
         }
     }
 }
