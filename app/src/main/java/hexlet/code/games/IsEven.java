@@ -8,7 +8,7 @@ public class IsEven {
 
     public static void beginIsEven() {
         Engine.greet();
-        System.out.println("Answer 'yes' if the number is even,"
+        System.out.println("Answer 'yes' if the number is even, "
                 + "otherwise answer 'no'.");
         Engine.playing();
     }

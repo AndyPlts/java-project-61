@@ -19,18 +19,8 @@ public class Prime {
         int minValue = 1;
         int maxValue = 100;
         int number = Engine.getRandomNumber(minValue, maxValue);
-        String result = "yes";
         // Определение "простоты" числа
-        if (number > 1) {
-            for (var i = 2; i <= number; i++) {
-                if (i < number && number % i == 0) {
-                    result = "no";
-                    break;
-                }
-            }
-        } else {
-            result = "no";
-        }
+        String result = isPrimeNumber(number);
         // Запрос ответа у игрока и последующее сравнее его ответа с эталоном
         System.out.println("Question: " + number);
         System.out.print("Your answer: ");
@@ -40,5 +30,19 @@ public class Prime {
         } else {
             Engine.negativeAnswer(result, answerOfPlayer);
         }
+    }
+    public static String isPrimeNumber(int number) {
+        String result = "no";
+        if (number > 1) {
+            for (var i = 2; i <= number; i++) {
+                if (i < number && number % i == 0) {
+                    result = "no";
+                    break;
+                } else {
+                    result = "yes";
+                }
+            }
+        }
+        return result;
     }
 }
