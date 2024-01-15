@@ -8,8 +8,8 @@ public class Prime {
 
     public static void beginPrime() {
         Engine.greet();
-        System.out.println("Answer 'yes' if the number is Prime, "
-                + "otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if the number is prime. "
+                + "Otherwise answer 'no'.");
         Engine.playing();
     }
 
