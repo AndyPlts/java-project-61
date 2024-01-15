@@ -54,7 +54,7 @@ public class Engine {
     public static void negativeAnswer(String answer, String answerOfPlayer) {
         System.out.println("'" + answerOfPlayer + "' is wrong answer "
                 + ";(. Correct answer '" + answer + "'");
-        System.out.println("Let's try again, " + name);
+        System.out.println("Let's try again, " + name + "!");
         Runtime.getRuntime().exit(0);
     }
 
