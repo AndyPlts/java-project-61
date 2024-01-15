@@ -9,7 +9,7 @@ public class Progression {
 
     public static void beginProgression() {
         Engine.greet();
-        System.out.println("What number is missing in this progression?");
+        System.out.println("What number is missing in the progression?");
         Engine.playing();
     }
 
