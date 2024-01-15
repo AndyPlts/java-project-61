@@ -42,6 +42,7 @@ public class Progression {
         String strOfNumbers = Arrays.toString(strNumbers);
         strOfNumbers = strOfNumbers.replace("[", "");
         strOfNumbers = strOfNumbers.replace("]", "");
+        strOfNumbers = strOfNumbers.replace(",", "");
         System.out.println("Question: " + strOfNumbers);
         System.out.print("Your answer: ");
         String answerOfPlayer = scanner.next();
