@@ -8,7 +8,7 @@ public class GCD {
 
     public static void beginGCD() {
         Engine.greet();
-        System.out.println("Find the greatest common divisor of given numbers");
+        System.out.println("Find the greatest common divisor of given numbers.");
         Engine.playing();
     }
 
