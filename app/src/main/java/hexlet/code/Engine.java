@@ -30,6 +30,9 @@ public class Engine {
                 case 5:
                     Game.logicProgression();
                     break;
+                case 6:
+                    Game.logicPrime();
+                    break;
                 default:
                     break;
             }
