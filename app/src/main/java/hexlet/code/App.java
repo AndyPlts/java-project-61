@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.GCD;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.IsEven;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
 import java.util.Scanner;
 
 public class App {
@@ -19,19 +25,19 @@ public class App {
                 Cli.greeting();
                 break;
             case 2:
-                Game.beginIsEven();
+                IsEven.beginIsEven();
                 break;
             case 3:
-                Game.beginCalc();
+                Calculator.beginCalc();
                 break;
             case 4:
-                Game.beginGCD();
+                GCD.beginGCD();
                 break;
             case 5:
-                Game.beginProgression();
+                Progression.beginProgression();
                 break;
             case 6:
-                Game.beginPrime();
+                Prime.beginPrime();
                 break;
             default:
                 System.out.println("Bye");

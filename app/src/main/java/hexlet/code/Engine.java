@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.GCD;
+import hexlet.code.games.IsEven;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
 import java.util.Scanner;
 
 public class Engine {
@@ -19,19 +25,19 @@ public class Engine {
         while (counter != 3) {
             switch (App.number) {
                 case 2:
-                    Game.logicIsEven();
+                    IsEven.logicIsEven();
                     break;
                 case 3:
-                    Game.logicCalc();
+                    Calculator.logicCalc();
                     break;
                 case 4:
-                    Game.logicGCD();
+                    GCD.logicGCD();
                     break;
                 case 5:
-                    Game.logicProgression();
+                    Progression.logicProgression();
                     break;
                 case 6:
-                    Game.logicPrime();
+                    Prime.logicPrime();
                     break;
                 default:
                     break;
@@ -57,5 +63,9 @@ public class Engine {
                 + ";(. Correct answer '" + answer + "'");
         System.out.println("Let's try again, " + name);
         Engine.counter = 0;
+    }
+
+    public static int getRandomNumber(int minNumber, int maxNumber) {
+        return minNumber + (int) (Math.random() * (maxNumber - minNumber + 1));
     }
 }
