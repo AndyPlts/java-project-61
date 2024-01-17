@@ -16,9 +16,9 @@ public class Prime {
     public static void logicPrime() {
         Scanner scanner = new Scanner(System.in);
         // Определение минимального числа для диапазона чисел, использумых в игре
-        int minValue = 1;
+        final int minValue = 1;
         // Определение максимального числа
-        int maxValue = 100;
+        final int maxValue = 100;
         int number = Engine.getRandomNumber(minValue, maxValue);
         // Определение "простоты" числа
         String result = isPrimeNumber(number);

@@ -15,8 +15,8 @@ public class GCD {
     public static void logicGCD() {
         Scanner scanner = new Scanner(System.in);
         // Установка диапазона чисел, задействованных в игре
-        int minNumber = 1;
-        int maxNumber = 100;
+        final int minNumber = 1;
+        final int maxNumber = 100;
         int result = 0;
         // Определение двух чисел через метод рандомных чисел и последующее определение меньшего из них
         int firstNumber = Engine.getRandomNumber(minNumber, maxNumber);

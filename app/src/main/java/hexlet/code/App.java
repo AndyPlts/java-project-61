@@ -10,16 +10,16 @@ import java.util.Scanner;
 
 public class App {
 
-    public static int number;
+    private static int number;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         System.out.print("Your choice: ");
-        number = scanner.nextInt();
+        setNumber(scanner.nextInt());
 
-        switch (number) {
+        switch (getNumber()) {
             // Exit
             case 0:
                 System.out.println("Bye.");
@@ -52,5 +52,13 @@ public class App {
                 System.out.println("Bye");
                 break;
         }
+    }
+
+    public static int getNumber() {
+        return number;
+    }
+
+    public static void setNumber(int number) {
+        App.number = number;
     }
 }

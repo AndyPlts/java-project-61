@@ -16,18 +16,18 @@ public class Progression {
     public static void logicProgression() {
         // Определение минимального числа для диапазона чисел, использумых в игре,
         // а также минимального числа приращения
-        int minNumber = 1;
+        final int minNumber = 1;
         // Определение максимального числа
-        int maxNumber = 20;
+        final int maxNumber = 20;
         // Установка максимального числа приращения
-        int maxChangeNumber = 10;
+        final int maxChangeNumber = 10;
         // Определение первого числа ряда и приращения
         int number = Engine.getRandomNumber(minNumber, maxNumber);
         int changeNumber = Engine.getRandomNumber(minNumber, maxChangeNumber);
         Scanner scanner = new Scanner(System.in);
         // Объявление массивов, в который будет занесён ряд чисел для образования ряда,
         // который в последствии будет перенесён в строковый массив для замены одного элемента
-        var numberOfElements = 10;
+        final int numberOfElements = 10;
         int[] numbers = new int[numberOfElements];
         String[] strNumbers = new String[numberOfElements];
         // Образование ряда чисел
