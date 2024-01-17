@@ -9,8 +9,8 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class Engine {
-    static String name;
-    static int counter;
+    public static String name;
+    public static int counter;
 
     public static void greet() {
         Scanner scanner = new Scanner(System.in);
@@ -24,18 +24,23 @@ public class Engine {
     // Счётчик побед в играх, использующий номер игры из класса "App" для запуска нужной игры
         while (counter != 3) {
             switch (App.number) {
+                // Even
                 case 2:
                     IsEven.logicIsEven();
                     break;
+                // Calculator
                 case 3:
                     Calculator.logicCalc();
                     break;
+                // GCD
                 case 4:
                     GCD.logicGCD();
                     break;
+                // Progression
                 case 5:
                     Progression.logicProgression();
                     break;
+                // Prime
                 case 6:
                     Prime.logicPrime();
                     break;

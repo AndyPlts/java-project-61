@@ -14,8 +14,10 @@ public class Progression {
     }
 
     public static void logicProgression() {
-        // Установка диапазона чисел, из которого будет выбираться первое число ряда
+        // Определение минимального числа для диапазона чисел, использумых в игре,
+        // а также минимального числа приращения
         int minNumber = 1;
+        // Определение максимального числа
         int maxNumber = 20;
         // Установка максимального числа приращения
         int maxChangeNumber = 10;
@@ -25,8 +27,9 @@ public class Progression {
         Scanner scanner = new Scanner(System.in);
         // Объявление массивов, в который будет занесён ряд чисел для образования ряда,
         // который в последствии будет перенесён в строковый массив для замены одного элемента
-        int[] numbers = new int[10];
-        String[] strNumbers = new String[10];
+        var numberOfElements = 10;
+        int[] numbers = new int[numberOfElements];
+        String[] strNumbers = new String[numberOfElements];
         // Образование ряда чисел
         numbers[0] = number;
         for (var i = 1; i < numbers.length; i++) {

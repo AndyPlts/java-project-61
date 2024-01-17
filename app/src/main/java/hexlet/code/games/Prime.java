@@ -15,8 +15,9 @@ public class Prime {
 
     public static void logicPrime() {
         Scanner scanner = new Scanner(System.in);
-        // Установка диапазона чисел, используемых в игре, через максимальное и минимальное числа
+        // Определение минимального числа для диапазона чисел, использумых в игре
         int minValue = 1;
+        // Определение максимального числа
         int maxValue = 100;
         int number = Engine.getRandomNumber(minValue, maxValue);
         // Определение "простоты" числа

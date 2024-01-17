@@ -9,7 +9,9 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
-    static int number;
+
+    public static int number;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
@@ -18,24 +20,31 @@ public class App {
         number = scanner.nextInt();
 
         switch (number) {
+            // Exit
             case 0:
                 System.out.println("Bye.");
                 break;
+            // Greet
             case 1:
                 Cli.greeting();
                 break;
+            // Even
             case 2:
                 IsEven.beginIsEven();
                 break;
+            // Calculator
             case 3:
                 Calculator.beginCalc();
                 break;
+            // GCD
             case 4:
                 GCD.beginGCD();
                 break;
+            // Progression
             case 5:
                 Progression.beginProgression();
                 break;
+            // Prime
             case 6:
                 Prime.beginPrime();
                 break;

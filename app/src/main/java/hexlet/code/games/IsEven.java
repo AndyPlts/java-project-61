@@ -14,8 +14,9 @@ public class IsEven {
     }
     public static void logicIsEven() {
         Scanner scanner = new Scanner(System.in);
-        // Установка диапазона чисел, используемых в игре, через максимальное и минимальное числа
+        // Определение минимального числа для диапазона чисел, использумых в игре
         int minValue = 1;
+        // Определение максимального числа
         int maxValue = 1000;
         int number = Engine.getRandomNumber(minValue, maxValue);
         System.out.println("Question: " + number);
