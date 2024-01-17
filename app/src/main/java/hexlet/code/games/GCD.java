@@ -36,7 +36,7 @@ public class GCD {
         if (result == answerOfPlayer) {
             Engine.positiveAnswer();
         } else {
-            Engine.negativeAnswer(result, answerOfPlayer);
+            Engine.negativeAnswerInt(result, answerOfPlayer);
         }
     }
 }

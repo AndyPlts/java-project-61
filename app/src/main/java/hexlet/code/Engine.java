@@ -79,14 +79,14 @@ public class Engine {
         Engine.setCounter(Engine.getCounter() + 1);
     }
 
-    public static void negativeAnswer(String answer, String answerOfPlayer) {
+    public static void negativeAnswerString(String answer, String answerOfPlayer) {
         System.out.println("'" + answerOfPlayer + "' is wrong answer "
                 + ";(. Correct answer '" + answer + "'");
         System.out.println("Let's try again, " + getName() + "!");
         Runtime.getRuntime().exit(0);
     }
 
-    public static void negativeAnswer(int answer, int answerOfPlayer) {
+    public static void negativeAnswerInt(int answer, int answerOfPlayer) {
         System.out.println("'" + answerOfPlayer + "' is wrong answer "
                 + ";(. Correct answer '" + answer + "'");
         System.out.println("Let's try again, " + getName() + "!");

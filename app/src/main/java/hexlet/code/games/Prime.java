@@ -29,7 +29,7 @@ public class Prime {
         if (result.equals(answerOfPlayer)) {
             Engine.positiveAnswer();
         } else {
-            Engine.negativeAnswer(result, answerOfPlayer);
+            Engine.negativeAnswerString(result, answerOfPlayer);
         }
     }
     public static String isPrimeNumber(int number) {

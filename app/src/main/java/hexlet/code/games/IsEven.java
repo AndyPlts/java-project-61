@@ -29,9 +29,9 @@ public class IsEven {
         } else if ((number % 2 != 0) && (answer.equals("no"))) {
             Engine.positiveAnswer();
         } else if (number % 2 == 0) {
-            Engine.negativeAnswer(positiveAnswer, answer);
+            Engine.negativeAnswerString(positiveAnswer, answer);
         } else {
-            Engine.negativeAnswer(negativeAnswer, answer);
+            Engine.negativeAnswerString(negativeAnswer, answer);
         }
     }
 }

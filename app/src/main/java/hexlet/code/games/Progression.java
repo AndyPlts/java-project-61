@@ -49,7 +49,7 @@ public class Progression {
         if (result.equals(answerOfPlayer)) {
             Engine.positiveAnswer();
         } else {
-            Engine.negativeAnswer(result, answerOfPlayer);
+            Engine.negativeAnswerString(result, answerOfPlayer);
         }
     }
 

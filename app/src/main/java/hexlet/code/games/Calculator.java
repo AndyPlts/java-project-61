@@ -27,28 +27,23 @@ public class Calculator {
         final int numberOfPlus = 1;
         final int numberOfMinus = 2;
         final int numberOfMultiply = 3;
-        resultOfCount = getResultOfCount(numberOfOperation, numberOfPlus, resultOfCount, firstNumber, secondNumber, numberOfMinus, numberOfMultiply);
-        int answerOfPlayer = scanner.nextInt();
-        if (resultOfCount == answerOfPlayer) {
-            Engine.positiveAnswer();
-        } else {
-            Engine.negativeAnswer(resultOfCount, answerOfPlayer);
-        }
-    }
-
-    private static int getResultOfCount(int numberOfOperation, int numberOfPlus, int resultOfCount, int firstNumber, int secondNumber, int numberOfMinus, int numberOfMultiply) {
         if (numberOfOperation == numberOfPlus) {
             resultOfCount = firstNumber + secondNumber;
             System.out.println("Question: " + firstNumber + " + " + secondNumber);
-        // 2 - вычитание
+            // 2 - вычитание
         } else if (numberOfOperation == numberOfMinus) {
             resultOfCount = firstNumber - secondNumber;
             System.out.println("Question: " + firstNumber + " - " + secondNumber);
-        // 3 - умножение
+            // 3 - умножение
         } else if (numberOfOperation == numberOfMultiply) {
             resultOfCount = firstNumber * secondNumber;
             System.out.println("Question: " + firstNumber + " * " + secondNumber);
         }
-        return resultOfCount;
+        int answerOfPlayer = scanner.nextInt();
+        if (resultOfCount == answerOfPlayer) {
+            Engine.positiveAnswer();
+        } else {
+            Engine.negativeAnswerInt(resultOfCount, answerOfPlayer);
+        }
     }
 }
