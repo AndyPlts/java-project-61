@@ -24,9 +24,9 @@ public class Calculator {
         int numberOfOperation = Engine.getRandomNumber(minOperation, maxOperation);
         int firstNumber = Engine.getRandomNumber(minNumber, maxNumber);
         int secondNumber = Engine.getRandomNumber(minNumber, maxNumber);
-        int numberOfPlus = 1;
-        int numberOfMinus = 2;
-        int numberOfMultiply = 3;
+        final int numberOfPlus = 1;
+        final int numberOfMinus = 2;
+        final int numberOfMultiply = 3;
         if (numberOfOperation == numberOfPlus) {
             resultOfCount = firstNumber + secondNumber;
             System.out.println("Question: " + firstNumber + " + " + secondNumber);

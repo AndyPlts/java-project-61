@@ -43,7 +43,7 @@ public class Engine {
         final int numberOfGCD = 4;
         final int numberOfProgression = 5;
         final int numberOfPrime = 6;
-        int requiredNumberOfVictories = 3;
+        final int requiredNumberOfVictories = 3;
         // Счётчик побед в играх, использующий номер игры из класса "App" для запуска нужной игры
         while (getCounter() != requiredNumberOfVictories) {
             switch (App.getNumber()) {
