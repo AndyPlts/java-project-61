@@ -38,15 +38,17 @@ public class Engine {
     }
 
     public static void playing() {
+        final int numberOfEven = 2;
         final int numberOfCalculator = 3;
         final int numberOfGCD = 4;
         final int numberOfProgression = 5;
         final int numberOfPrime = 6;
+        int requiredNumberOfVictories = 3;
         // Счётчик побед в играх, использующий номер игры из класса "App" для запуска нужной игры
-        while (getCounter() != 3) {
+        while (getCounter() != requiredNumberOfVictories) {
             switch (App.getNumber()) {
                 // Even
-                case 2:
+                case numberOfEven:
                     IsEven.logicIsEven();
                     break;
                 // Calculator

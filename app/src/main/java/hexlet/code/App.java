@@ -18,6 +18,9 @@ public class App {
         System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         System.out.print("Your choice: ");
         setNumber(scanner.nextInt());
+        final int numberOfExit = 0;
+        final int numberOfGreet = 1;
+        final int numberOfEven = 2;
         final int numberOfCalculator = 3;
         final int numberOfGCD = 4;
         final int numberOfProgression = 5;
@@ -25,15 +28,15 @@ public class App {
 
         switch (getNumber()) {
             // Exit
-            case 0:
+            case numberOfExit:
                 System.out.println("Bye.");
                 break;
             // Greet
-            case 1:
+            case numberOfGreet:
                 Cli.greeting();
                 break;
             // Even
-            case 2:
+            case numberOfEven:
                 IsEven.beginIsEven();
                 break;
             // Calculator
