@@ -14,9 +14,9 @@ public class Calculator {
     public static void logicCalc() {
         Scanner scanner = new Scanner(System.in);
         // Определение минимального числа для диапазона чисел, использумых в игре
-        int minNumber = 0;
+        final int minNumber = 0;
         // Определение максимального числа
-        int maxNumber = 100;
+        final int maxNumber = 100;
         final int minOperation = 1;
         final int maxOperation = 3;
         int resultOfCount = 0;

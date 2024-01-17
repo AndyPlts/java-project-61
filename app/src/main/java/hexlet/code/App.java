@@ -18,6 +18,10 @@ public class App {
         System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
         System.out.print("Your choice: ");
         setNumber(scanner.nextInt());
+        final int numberOfCalculator = 3;
+        final int numberOfGCD = 4;
+        final int numberOfProgression = 5;
+        final int numberOfPrime = 6;
 
         switch (getNumber()) {
             // Exit
@@ -33,19 +37,19 @@ public class App {
                 IsEven.beginIsEven();
                 break;
             // Calculator
-            case 3:
+            case numberOfCalculator:
                 Calculator.beginCalc();
                 break;
             // GCD
-            case 4:
+            case numberOfGCD:
                 GCD.beginGCD();
                 break;
             // Progression
-            case 5:
+            case numberOfProgression:
                 Progression.beginProgression();
                 break;
             // Prime
-            case 6:
+            case numberOfPrime:
                 Prime.beginPrime();
                 break;
             default:
@@ -58,7 +62,7 @@ public class App {
         return number;
     }
 
-    public static void setNumber(int number) {
-        App.number = number;
+    public static void setNumber(int numb) {
+        App.number = numb;
     }
 }

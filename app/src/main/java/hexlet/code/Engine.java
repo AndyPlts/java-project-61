@@ -17,16 +17,16 @@ public class Engine {
         return name;
     }
 
-    public static void setName(String name) {
-        Engine.name = name;
+    public static void setName(String nam) {
+        Engine.name = nam;
     }
 
     public static int getCounter() {
         return counter;
     }
 
-    public static void setCounter(int counter) {
-        Engine.counter = counter;
+    public static void setCounter(int count) {
+        Engine.counter = count;
     }
 
     public static void greet() {
@@ -38,6 +38,10 @@ public class Engine {
     }
 
     public static void playing() {
+        final int numberOfCalculator = 3;
+        final int numberOfGCD = 4;
+        final int numberOfProgression = 5;
+        final int numberOfPrime = 6;
         // Счётчик побед в играх, использующий номер игры из класса "App" для запуска нужной игры
         while (getCounter() != 3) {
             switch (App.getNumber()) {
@@ -46,19 +50,19 @@ public class Engine {
                     IsEven.logicIsEven();
                     break;
                 // Calculator
-                case 3:
+                case numberOfCalculator:
                     Calculator.logicCalc();
                     break;
                 // GCD
-                case 4:
+                case numberOfGCD:
                     GCD.logicGCD();
                     break;
                 // Progression
-                case 5:
+                case numberOfProgression:
                     Progression.logicProgression();
                     break;
                 // Prime
-                case 6:
+                case numberOfPrime:
                     Prime.logicPrime();
                     break;
                 default:
