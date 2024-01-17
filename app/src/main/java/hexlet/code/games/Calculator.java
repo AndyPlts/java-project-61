@@ -27,6 +27,16 @@ public class Calculator {
         final int numberOfPlus = 1;
         final int numberOfMinus = 2;
         final int numberOfMultiply = 3;
+        resultOfCount = getResultOfCount(numberOfOperation, numberOfPlus, resultOfCount, firstNumber, secondNumber, numberOfMinus, numberOfMultiply);
+        int answerOfPlayer = scanner.nextInt();
+        if (resultOfCount == answerOfPlayer) {
+            Engine.positiveAnswer();
+        } else {
+            Engine.negativeAnswer(resultOfCount, answerOfPlayer);
+        }
+    }
+
+    private static int getResultOfCount(int numberOfOperation, int numberOfPlus, int resultOfCount, int firstNumber, int secondNumber, int numberOfMinus, int numberOfMultiply) {
         if (numberOfOperation == numberOfPlus) {
             resultOfCount = firstNumber + secondNumber;
             System.out.println("Question: " + firstNumber + " + " + secondNumber);
@@ -39,11 +49,6 @@ public class Calculator {
             resultOfCount = firstNumber * secondNumber;
             System.out.println("Question: " + firstNumber + " * " + secondNumber);
         }
-        int answerOfPlayer = scanner.nextInt();
-        if (resultOfCount == answerOfPlayer) {
-            Engine.positiveAnswer();
-        } else {
-            Engine.negativeAnswer(resultOfCount, answerOfPlayer);
-        }
+        return resultOfCount;
     }
 }

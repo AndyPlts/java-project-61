@@ -40,12 +40,8 @@ public class Progression {
         // Замещение одного числа пропуском
         int indexOfReplaceNumber = Engine.getRandomNumber(0, numbers.length - 1);
         String result = strNumbers[indexOfReplaceNumber];
-        strNumbers[indexOfReplaceNumber] = "..";
-        // Запрос ответа у игрока
-        String strOfNumbers = Arrays.toString(strNumbers);
-        strOfNumbers = strOfNumbers.replace("[", "");
-        strOfNumbers = strOfNumbers.replace("]", "");
-        strOfNumbers = strOfNumbers.replace(",", "");
+        // Форматирование массива в требуемый формат
+        String strOfNumbers = getString(strNumbers, indexOfReplaceNumber);
         System.out.println("Question: " + strOfNumbers);
         System.out.print("Your answer: ");
         String answerOfPlayer = scanner.next();
@@ -55,6 +51,14 @@ public class Progression {
         } else {
             Engine.negativeAnswer(result, answerOfPlayer);
         }
+    }
 
+    private static String getString(String[] strNumbers, int indexOfReplaceNumber) {
+        strNumbers[indexOfReplaceNumber] = "..";
+        String strOfNumbers = Arrays.toString(strNumbers);
+        strOfNumbers = strOfNumbers.replace("[", "");
+        strOfNumbers = strOfNumbers.replace("]", "");
+        strOfNumbers = strOfNumbers.replace(",", "");
+        return strOfNumbers;
     }
 }
