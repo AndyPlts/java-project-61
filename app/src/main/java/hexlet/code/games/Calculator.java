@@ -40,6 +40,10 @@ public class Calculator {
             System.out.println("Question: " + firstNumber + " * " + secondNumber);
         }
         int answerOfPlayer = scanner.nextInt();
+        compareAnswers(resultOfCount, answerOfPlayer);
+    }
+
+    private static void compareAnswers(int resultOfCount, int answerOfPlayer) {
         if (resultOfCount == answerOfPlayer) {
             Engine.positiveAnswer();
         } else {

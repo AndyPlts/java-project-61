@@ -22,7 +22,6 @@ public class App {
 
     public static void main(String[] args) {
         chooseGame();
-        final int numberOfGreet = 1;
         final int numberOfEven = 2;
         final int numberOfCalculator = 3;
         final int numberOfGCD = 4;
@@ -30,7 +29,7 @@ public class App {
         final int numberOfPrime = 6;
         switch (getNumber()) {
             // Greet
-            case numberOfGreet:
+            case 1:
                 Cli.greeting();
                 break;
             // Even

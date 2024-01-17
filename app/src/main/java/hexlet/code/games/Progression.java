@@ -31,12 +31,7 @@ public class Progression {
         int[] numbers = new int[numberOfElements];
         String[] strNumbers = new String[numberOfElements];
         // Образование ряда чисел
-        numbers[0] = number;
-        for (var i = 1; i < numbers.length; i++) {
-            numbers[i] = numbers[i - 1] + changeNumber;
-            strNumbers[i] = String.valueOf(numbers[i]);
-        }
-        strNumbers[0] = String.valueOf(numbers[0]);
+        createArrayOfNumbers(numbers, number, changeNumber, strNumbers);
         // Замещение одного числа пропуском
         int indexOfReplaceNumber = Engine.getRandomNumber(0, numbers.length - 1);
         String result = strNumbers[indexOfReplaceNumber];
@@ -51,6 +46,15 @@ public class Progression {
         } else {
             Engine.negativeAnswerString(result, answerOfPlayer);
         }
+    }
+
+    private static void createArrayOfNumbers(int[] numbers, int number, int changeNumber, String[] strNumbers) {
+        numbers[0] = number;
+        for (var i = 1; i < numbers.length; i++) {
+            numbers[i] = numbers[i - 1] + changeNumber;
+            strNumbers[i] = String.valueOf(numbers[i]);
+        }
+        strNumbers[0] = String.valueOf(numbers[0]);
     }
 
     private static String getString(String[] strNumbers, int indexOfReplaceNumber) {
