@@ -1,7 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.games.GCD;
-import hexlet.code.games.Calculator;
+//import hexlet.code.games.Calculator;
 import hexlet.code.games.IsEven;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
@@ -36,22 +36,22 @@ public class App {
             case numberOfEven:
                 IsEven.beginIsEven();
                 break;
-            // Calculator
-            case numberOfCalculator:
-                Calculator.beginCalc();
-                break;
-            // GCD
-            case numberOfGCD:
-                GCD.beginGCD();
-                break;
-            // Progression
-            case numberOfProgression:
-                Progression.beginProgression();
-                break;
-            // Prime
-            case numberOfPrime:
-                Prime.beginPrime();
-            default:
+//            // Calculator
+//            case numberOfCalculator:
+//                Calculator.beginCalc();
+//                break;
+//            // GCD
+//            case numberOfGCD:
+//                GCD.beginGCD();
+//                break;
+//            // Progression
+//            case numberOfProgression:
+//                Progression.beginProgression();
+//                break;
+//            // Prime
+//            case numberOfPrime:
+//                Prime.beginPrime();
+//            default:
         }
     }
 

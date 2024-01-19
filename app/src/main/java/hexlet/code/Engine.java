@@ -1,11 +1,12 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
+//import hexlet.code.games.Calculator;
 import hexlet.code.games.GCD;
 import hexlet.code.games.IsEven;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
@@ -37,38 +38,17 @@ public class Engine {
         System.out.println("Hello, " + getName() + "!");
     }
 
-    public static void playing() {
-        final int numberOfEven = 2;
-        final int numberOfCalculator = 3;
-        final int numberOfGCD = 4;
-        final int numberOfProgression = 5;
-        final int numberOfPrime = 6;
-        final int requiredNumberOfVictories = 3;
-        // Счётчик побед в играх, использующий номер игры из класса "App" для запуска нужной игры
-        while (getCounter() != requiredNumberOfVictories) {
-            switch (App.getNumber()) {
-                // Even
-                case numberOfEven:
-                    IsEven.logicIsEven();
-                    break;
-                // Calculator
-                case numberOfCalculator:
-                    Calculator.logicCalc();
-                    break;
-                // GCD
-                case numberOfGCD:
-                    GCD.logicGCD();
-                    break;
-                // Progression
-                case numberOfProgression:
-                    Progression.logicProgression();
-                    break;
-                // Prime
-                case numberOfPrime:
-                    Prime.logicPrime();
-                    break;
-                default:
-                    break;
+    public static void playing(String[][] array) {
+        Scanner scanner = new Scanner(System.in);
+        final int numberOfQuestions = 3;
+        for (var i = 0; i < numberOfQuestions; i++) {
+            System.out.println("Question: " + array[i][0]);
+            System.out.print("Your answer: ");
+            String answerOfPlayer = scanner.next();
+            if (answerOfPlayer.equals(array[i][1])) {
+                positiveAnswer();
+            } else {
+                negativeAnswer(array[i][1], answerOfPlayer);
             }
         }
         System.out.println("Congratulations, " + getName() + "!");
@@ -79,18 +59,12 @@ public class Engine {
         Engine.setCounter(Engine.getCounter() + 1);
     }
 
-    public static void negativeAnswerString(String answer, String answerOfPlayer) {
+    public static void negativeAnswer(String answer, String answerOfPlayer) {
         System.out.println("'" + answerOfPlayer + "' is wrong answer "
                 + ";(. Correct answer '" + answer + "'");
         System.out.println("Let's try again, " + getName() + "!");
         Runtime.getRuntime().exit(0);
-    }
 
-    public static void negativeAnswerInt(int answer, int answerOfPlayer) {
-        System.out.println("'" + answerOfPlayer + "' is wrong answer "
-                + ";(. Correct answer '" + answer + "'");
-        System.out.println("Let's try again, " + getName() + "!");
-        Runtime.getRuntime().exit(0);
     }
 
     public static int getRandomNumber(int minNumber, int maxNumber) {
