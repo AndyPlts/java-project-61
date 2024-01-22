@@ -3,17 +3,14 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Progression {
 
-    public static void beginProgression() {
-        Engine.greet();
-        System.out.println("What number is missing in the progression?");
-        Engine.playing();
-    }
+
 
     public static void logicProgression() {
+        Engine.greet();
+        System.out.println("What number is missing in the progression?");
         // Определение минимального числа для диапазона чисел, использумых в игре,
         // а также минимального числа приращения
         final int minNumber = 1;
@@ -21,31 +18,27 @@ public class Progression {
         final int maxNumber = 20;
         // Установка максимального числа приращения
         final int maxChangeNumber = 10;
-        // Определение первого числа ряда и приращения
-        int number = Engine.getRandomNumber(minNumber, maxNumber);
-        int changeNumber = Engine.getRandomNumber(minNumber, maxChangeNumber);
-        Scanner scanner = new Scanner(System.in);
-        // Объявление массивов, в который будет занесён ряд чисел для образования ряда,
-        // который в последствии будет перенесён в строковый массив для замены одного элемента
-        final int numberOfElements = 10;
-        int[] numbers = new int[numberOfElements];
-        String[] strNumbers = new String[numberOfElements];
-        // Образование ряда чисел
-        createArrayOfNumbers(numbers, number, changeNumber, strNumbers);
-        // Замещение одного числа пропуском
-        int indexOfReplaceNumber = Engine.getRandomNumber(0, numbers.length - 1);
-        String result = strNumbers[indexOfReplaceNumber];
-        // Форматирование массива в требуемый формат
-        String strOfNumbers = getString(strNumbers, indexOfReplaceNumber);
-        System.out.println("Question: " + strOfNumbers);
-        System.out.print("Your answer: ");
-        String answerOfPlayer = scanner.next();
-        // Сравнение эталонного ответа и ответа игрока
-        if (result.equals(answerOfPlayer)) {
-            Engine.positiveAnswer();
-        } else {
-            Engine.negativeAnswerString(result, answerOfPlayer);
+        // Созданеи 2-мерного массива для хранения результатов генерации числа и правильного ответа
+        final var sizeOfArray = 3;
+        String[][] array = new String[sizeOfArray][sizeOfArray];
+        for (var i = 0; i < sizeOfArray; i++) {
+            // Определение первого числа ряда и приращения
+            int number = Engine.getRandomNumber(minNumber, maxNumber);
+            int changeNumber = Engine.getRandomNumber(minNumber, maxChangeNumber);
+            // Объявление массивов, в который будет занесён ряд чисел для образования ряда,
+            // который в последствии будет перенесён в строковый массив для замены одного элемента
+            final int numberOfElements = 10;
+            int[] numbers = new int[numberOfElements];
+            String[] strNumbers = new String[numberOfElements];
+            // Образование ряда чисел
+            createArrayOfNumbers(numbers, number, changeNumber, strNumbers);
+            // Замещение одного числа пропуском
+            int indexOfReplaceNumber = Engine.getRandomNumber(0, numbers.length - 1);
+            array[i][1] = strNumbers[indexOfReplaceNumber];
+            // Форматирование массива в требуемый формат
+            array[i][0] = getString(strNumbers, indexOfReplaceNumber);
         }
+        Engine.playing(array);
     }
 
     private static void createArrayOfNumbers(int[] numbers, int number, int changeNumber, String[] strNumbers) {

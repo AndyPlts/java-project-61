@@ -2,36 +2,28 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public class Prime {
 
     public static void beginPrime() {
         Engine.greet();
         System.out.println("Answer 'yes' if given number is prime. "
                 + "Otherwise answer 'no'.");
-        Engine.playing();
+        // Созданеи 2-мерного массива для хранения результатов генерации числа и правильного ответа
+        final var sizeOfArray = 3;
+        String[][] array = new String[sizeOfArray][sizeOfArray];
+        // Определение минимального числа и максимального числа для диапазона чисел, использумых в игре
+        final int minValue = 1;
+        final int maxValue = 100;
+        int number;
+        // Определение "простоты" числа
+        for (var i = 0; i < sizeOfArray; i++) {
+            number = Engine.getRandomNumber(minValue, maxValue);
+            array[i][0] = Integer.toString(number);
+            array[i][1] = isPrimeNumber(number);
+        }
+        Engine.playing(array);
     }
 
-    public static void logicPrime() {
-        Scanner scanner = new Scanner(System.in);
-        // Определение минимального числа для диапазона чисел, использумых в игре
-        final int minValue = 1;
-        // Определение максимального числа
-        final int maxValue = 100;
-        int number = Engine.getRandomNumber(minValue, maxValue);
-        // Определение "простоты" числа
-        String result = isPrimeNumber(number);
-        // Запрос ответа у игрока и последующее сравнее его ответа с эталоном
-        System.out.println("Question: " + number);
-        System.out.print("Your answer: ");
-        String answerOfPlayer = scanner.next();
-        if (result.equals(answerOfPlayer)) {
-            Engine.positiveAnswer();
-        } else {
-            Engine.negativeAnswerString(result, answerOfPlayer);
-        }
-    }
     public static String isPrimeNumber(int number) {
         String result = "no";
         if (number > 1) {

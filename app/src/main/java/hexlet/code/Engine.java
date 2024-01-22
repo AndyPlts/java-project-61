@@ -1,18 +1,12 @@
 package hexlet.code;
 
 //import hexlet.code.games.Calculator;
-import hexlet.code.games.GCD;
-import hexlet.code.games.IsEven;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Engine {
 
     private static String name;
-    private static int counter;
 
     public static String getName() {
         return name;
@@ -20,14 +14,6 @@ public class Engine {
 
     public static void setName(String nam) {
         Engine.name = nam;
-    }
-
-    public static int getCounter() {
-        return counter;
-    }
-
-    public static void setCounter(int count) {
-        Engine.counter = count;
     }
 
     public static void greet() {
@@ -46,20 +32,19 @@ public class Engine {
             System.out.print("Your answer: ");
             String answerOfPlayer = scanner.next();
             if (answerOfPlayer.equals(array[i][1])) {
-                positiveAnswer();
+                getPositiveAnswer();
             } else {
-                negativeAnswer(array[i][1], answerOfPlayer);
+                getNegativeAnswer(array[i][1], answerOfPlayer);
             }
         }
         System.out.println("Congratulations, " + getName() + "!");
     }
 
-    public static void positiveAnswer() {
+    public static void getPositiveAnswer() {
         System.out.println("Correct!");
-        Engine.setCounter(Engine.getCounter() + 1);
     }
 
-    public static void negativeAnswer(String answer, String answerOfPlayer) {
+    public static void getNegativeAnswer(String answer, String answerOfPlayer) {
         System.out.println("'" + answerOfPlayer + "' is wrong answer "
                 + ";(. Correct answer '" + answer + "'");
         System.out.println("Let's try again, " + getName() + "!");
@@ -70,4 +55,14 @@ public class Engine {
     public static int getRandomNumber(int minNumber, int maxNumber) {
         return minNumber + (int) (Math.random() * (maxNumber - minNumber + 1));
     }
+
+    public static int chooseGame() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
+        System.out.print("Your choice: ");
+        return scanner.nextInt();
+    }
+
+
 }
