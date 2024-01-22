@@ -6,6 +6,7 @@ public class GCD {
 
     public static void beginGCD() {
         Engine.greet();
+        System.out.println("Find the greatest common divisor of given numbers.");
         // Созданеи 2-мерного массива для хранения результатов генерации числа и правильного ответа
         final var sizeOfArray = 3;
         String[][] array = new String[sizeOfArray][sizeOfArray];
