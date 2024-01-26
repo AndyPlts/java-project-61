@@ -6,6 +6,8 @@ import hexlet.code.games.IsEven;
 import hexlet.code.games.Prime;
 import hexlet.code.games.Progression;
 
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
@@ -14,7 +16,7 @@ public class App {
         final int numberOfGCD = 4;
         final int numberOfProgression = 5;
         final int numberOfPrime = 6;
-        switch (Engine.chooseGame()) {
+        switch (chooseGame()) {
             // Greet
             case 1:
                 Cli.greeting();
@@ -40,5 +42,13 @@ public class App {
                 Prime.beginPrime();
             default:
         }
+    }
+
+    public static int chooseGame() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println("1 - Greet\n2 - Even\n3 - Calculator\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
+        System.out.print("Your choice: ");
+        return scanner.nextInt();
     }
 }

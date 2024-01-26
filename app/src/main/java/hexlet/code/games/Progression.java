@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Arrays;
 
@@ -9,8 +10,8 @@ public class Progression {
 
 
     public static void logicProgression() {
-        Engine.greet();
-        System.out.println("What number is missing in the progression?");
+        //Engine.greet();
+        String question = "What number is missing in the progression?";
         // Определение минимального числа для диапазона чисел, использумых в игре,
         // а также минимального числа приращения
         final int minNumber = 1;
@@ -23,22 +24,26 @@ public class Progression {
         String[][] array = new String[sizeOfArray][sizeOfArray];
         for (var i = 0; i < sizeOfArray; i++) {
             // Определение первого числа ряда и приращения
-            int number = Engine.getRandomNumber(minNumber, maxNumber);
-            int changeNumber = Engine.getRandomNumber(minNumber, maxChangeNumber);
-            // Объявление массивов, в который будет занесён ряд чисел для образования ряда,
-            // который в последствии будет перенесён в строковый массив для замены одного элемента
-            final int numberOfElements = 10;
-            int[] numbers = new int[numberOfElements];
-            String[] strNumbers = new String[numberOfElements];
-            // Образование ряда чисел
-            createArrayOfNumbers(numbers, number, changeNumber, strNumbers);
-            // Замещение одного числа пропуском
-            int indexOfReplaceNumber = Engine.getRandomNumber(0, numbers.length - 1);
-            array[i][1] = strNumbers[indexOfReplaceNumber];
-            // Форматирование массива в требуемый формат
-            array[i][0] = getString(strNumbers, indexOfReplaceNumber);
+            generateRound(minNumber, maxNumber, maxChangeNumber, array[i]);
         }
-        Engine.playing(array);
+        Engine.playing(array, question);
+    }
+
+    private static void generateRound(int minNumber, int maxNumber, int maxChangeNumber, String[] array) {
+        int number = Utils.getRandomNumber(minNumber, maxNumber);
+        int changeNumber = Utils.getRandomNumber(minNumber, maxChangeNumber);
+        // Объявление массивов, в который будет занесён ряд чисел для образования ряда,
+        // который в последствии будет перенесён в строковый массив для замены одного элемента
+        final int numberOfElements = 10;
+        int[] numbers = new int[numberOfElements];
+        String[] strNumbers = new String[numberOfElements];
+        // Образование ряда чисел
+        createArrayOfNumbers(numbers, number, changeNumber, strNumbers);
+        // Замещение одного числа пропуском
+        int indexOfReplaceNumber = Utils.getRandomNumber(0, numbers.length - 1);
+        array[1] = strNumbers[indexOfReplaceNumber];
+        // Форматирование массива в требуемый формат
+        array[0] = getString(strNumbers, indexOfReplaceNumber);
     }
 
     private static void createArrayOfNumbers(int[] numbers, int number, int changeNumber, String[] strNumbers) {
