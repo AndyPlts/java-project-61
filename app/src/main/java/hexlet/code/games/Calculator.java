@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.Utils;
 
 public class Calculator {
-
+    private static final char[] OPERATORS = {'+', '-', '*'};
     public static void beginCalc() {
         //Engine.greet();
         String question = ("What is the result of the expression?");
@@ -12,37 +12,33 @@ public class Calculator {
         final var sizeOfArray = 3;
         String[][] array = new String[sizeOfArray][sizeOfArray];
         for (var i = 0; i < sizeOfArray; i++) {
-            generateRound(array, i);
+            generateRound(array[i]);
         }
         Engine.playing(array, question);
     }
 
-    private static void generateRound(String[][] array, int index) {
+    private static void generateRound(String[] array) {
         // Определение минимального числа для диапазона чисел, использумых в игре
         final int minNumber = 0;
         // Определение максимального числа
         final int maxNumber = 100;
-        final int minOperation = 1;
-        final int maxOperation = 3;
-        // Вывод номера операции через метод вывода случайного числа
-        final int numberOfPlus = 1;
-        final int numberOfMinus = 2;
-        final int numberOfMultiply = 3;
-        int numberOfOperation = Utils.getRandomNumber(minOperation, maxOperation);
         int firstNumber = Utils.getRandomNumber(minNumber, maxNumber);
         int secondNumber = Utils.getRandomNumber(minNumber, maxNumber);
-        // 1 - сложение
-        if (numberOfOperation == numberOfPlus) {
-            array[index][1] = Integer.toString(firstNumber + secondNumber);
-            array[index][0] = firstNumber + " + " + secondNumber;
-            // 2 - вычитание
-        } else if (numberOfOperation == numberOfMinus) {
-            array[index][1] = Integer.toString(firstNumber - secondNumber);
-            array[index][0] = firstNumber + " - " + secondNumber;
-            // 3 - умножение
-        } else if (numberOfOperation == numberOfMultiply) {
-            array[index][1] = Integer.toString(firstNumber * secondNumber);
-            array[index][0] = firstNumber + " * " + secondNumber;
+        final int minOperation = 0;
+        final int maxOperation = 2;
+        // Определение операции через вывод символа из константы путём случайного выбора индекса
+        char operator = OPERATORS[Utils.getRandomNumber(minOperation, maxOperation)];
+        array[1] = count(firstNumber, secondNumber, operator);
+        array[0] = firstNumber + " " + operator + " " + secondNumber;
+    }
+
+    private static String count(int firstNumber, int secondNumber, char operator) {
+        if (operator == '+') {
+            return Integer.toString(firstNumber + secondNumber);
+        } else if (operator == '-') {
+            return Integer.toString(firstNumber - secondNumber);
+        } else {
+            return Integer.toString(firstNumber * secondNumber);
         }
     }
 }
