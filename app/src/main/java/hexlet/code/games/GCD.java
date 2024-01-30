@@ -26,8 +26,10 @@ public class GCD {
     }
 
     private static void getNumbers(String[] array) {
-        int firstNumber = Utils.getRandomNumber();
-        int secondNumber = Utils.getRandomNumber();
+        final int minValue = 1;
+        final int maxValue = 100;
+        int firstNumber = Utils.getRandomNumber(minValue, maxValue);
+        int secondNumber = Utils.getRandomNumber(minValue, maxValue);
         int smallNumber = Math.min(firstNumber, secondNumber);
         for (var j = 1; j <= smallNumber; j++) {
             if (firstNumber % j == 0 && secondNumber % j == 0) {
