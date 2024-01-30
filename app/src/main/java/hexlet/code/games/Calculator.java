@@ -22,7 +22,7 @@ public class Calculator {
         int firstNumber = Utils.getRandomNumber();
         int secondNumber = Utils.getRandomNumber();
         final int minOperation = 0;
-        final int maxOperation = 2;
+        final int maxOperation = OPERATORS.length - 1;
         // Определение операции через вывод символа из константы путём случайного выбора индекса
         char operator = OPERATORS[Utils.getRandomNumber(minOperation, maxOperation)];
         array[1] = count(firstNumber, secondNumber, operator);
