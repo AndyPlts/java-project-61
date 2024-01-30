@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class Engine {
 
+    public static final int NUMBEROFROUNDS = 3;
+    public static final int NUMBEROFELEMENTS = 2;
+
     public static void playing(String[][] array, String question) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");

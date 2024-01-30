@@ -9,37 +9,32 @@ public class Prime {
         String question = ("Answer 'yes' if given number is prime. "
                 + "Otherwise answer 'no'.");
         // Созданеи 2-мерного массива для хранения результатов генерации числа и правильного ответа
-        final var sizeOfArray = 3;
-        String[][] array = new String[sizeOfArray][sizeOfArray];
+        String[][] array = new String[Engine.NUMBEROFROUNDS][];
         // Определение минимального числа и максимального числа для диапазона чисел, использумых в игре
-        generateRound(sizeOfArray, array);
+        for (var i = 0; i < Engine.NUMBEROFROUNDS; i++) {
+            array[i] = generateRound();
+        }    
         Engine.playing(array, question);
     }
 
-    private static void generateRound(int sizeOfArray, String[][] array) {
-        final int minValue = 1;
-        final int maxValue = 100;
+    private static String[] generateRound() {
+        String[] array = new String[Engine.NUMBEROFELEMENTS];
         int number;
         // Определение "простоты" числа
-        for (var i = 0; i < sizeOfArray; i++) {
-            number = Utils.getRandomNumber(minValue, maxValue);
-            array[i][0] = Integer.toString(number);
-            array[i][1] = isPrimeNumber(number);
-        }
+        number = Utils.getRandomNumber();
+        array[0] = Integer.toString(number);
+        array[1] = isPrime(number) ? "no" : "yes";
+        return array;
     }
 
-    private static String isPrimeNumber(int number) {
-        String result = "no";
+    private static boolean isPrime(int number) {
         if (number > 1) {
             for (var i = 2; i <= number; i++) {
                 if (i < number && number % i == 0) {
-                    result = "no";
-                    break;
-                } else {
-                    result = "yes";
+                    return true;
                 }
             }
         }
-        return result;
+    return false;
     }
 }
