@@ -13,7 +13,7 @@ public class Prime {
         // Определение минимального числа и максимального числа для диапазона чисел, использумых в игре
         for (var i = 0; i < Engine.NUMBEROFROUNDS; i++) {
             array[i] = generateRound();
-        }    
+        }
         Engine.playing(array, question);
     }
 

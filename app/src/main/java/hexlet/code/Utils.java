@@ -10,6 +10,7 @@ public class Utils {
     }
 
     public static int getRandomNumber() {
-        return (int) (Math.random() * (100 + 1));
+        final int maxValue = 100;
+        return (int) (Math.random() * (maxValue + 1));
     }
 }
