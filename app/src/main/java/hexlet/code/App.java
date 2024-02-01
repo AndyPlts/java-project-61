@@ -17,17 +17,11 @@ public class App {
         final int numberOfProgression = 5;
         final int numberOfPrime = 6;
         switch (chooseGame()) {
-            // Greet
             case 1 -> Cli.greeting();
-            // Even
             case numberOfEven -> IsEven.beginIsEven();
-            // Calculator
             case numberOfCalculator -> Calculator.beginCalc();
-            // GCD
             case numberOfGCD -> GCD.beginGCD();
-            // Progression
             case numberOfProgression -> Progression.logicProgression();
-            // Prime
             case numberOfPrime -> Prime.beginPrime();
             default -> throw new Error("Error");
         }

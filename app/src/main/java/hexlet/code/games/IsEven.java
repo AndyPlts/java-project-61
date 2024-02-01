@@ -8,23 +8,20 @@ public class IsEven {
     public static void beginIsEven() {
         String question = "Answer 'yes' if the number is even, "
                 + "otherwise answer 'no'.";
-        // Создание 2-мерного массива для хранения результатов генерации числа и правильного ответа
-        String[][] array = new String[Engine.NUMBEROFROUNDS][];
-        // Задание минимального и максимального чисел для диапазона чисел, использумых в игре
-        for (var i = 0; i < Engine.NUMBEROFROUNDS; i++) {
-            array[i] = generateRound();
+        String[][] roundData = new String[Engine.NUMBER_OF_ROUNDS][];
+        for (var i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
+            roundData[i] = generateRound();
         }
-        Engine.playing(array, question);
+        Engine.rules(roundData, question);
     }
 
     private static String[] generateRound() {
-        String[] array = new String[Engine.NUMBEROFELEMENTS];
-        var tempNumber = 0;
+        String[] roundData = new String[Engine.NUMBER_OF_ELEMENTS];
         final int maxValue = 1000;
-        tempNumber = Utils.getRandomNumber(maxValue);
-        array[0] = Integer.toString(tempNumber);
-        array[1] = isEven(tempNumber) ? "yes" : "no";
-        return array;
+        var checkedNumber = Utils.getRandomNumber(maxValue);
+        roundData[0] = Integer.toString(checkedNumber);
+        roundData[1] = isEven(checkedNumber) ? "yes" : "no";
+        return roundData;
     }
 
     public static boolean isEven(int number) {

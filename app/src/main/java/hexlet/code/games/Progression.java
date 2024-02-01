@@ -6,61 +6,45 @@ import hexlet.code.Utils;
 import java.util.Arrays;
 
 public class Progression {
-
-
-
+    private static final int LOW_LIMIT_NUMBER = 1;
+    private static final int TOP_LIMIT_NUMBER = 20;
+    private static final int MAX_STEP_NUMBER = 10;
     public static void logicProgression() {
-        //Engine.greet();
         String question = "What number is missing in the progression?";
-        // Определение минимального числа для диапазона чисел, использумых в игре,
-        // а также минимального числа приращения
-        final int minNumber = 1;
-        // Определение максимального числа
-        final int maxNumber = 20;
-        // Установка максимального числа приращения
-        final int maxChangeNumber = 10;
-        // Созданеи 2-мерного массива для хранения результатов генерации числа и правильного ответа
-        String[][] array = new String[Engine.NUMBEROFROUNDS][];
-        for (var i = 0; i < Engine.NUMBEROFROUNDS; i++) {
-            // Определение первого числа ряда и приращения
-            array[i] = generateRound(minNumber, maxNumber, maxChangeNumber);
+        String[][] roundData = new String[Engine.NUMBER_OF_ROUNDS][];
+        for (var i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
+            roundData[i] = generateRound();
         }
-        Engine.playing(array, question);
+        Engine.rules(roundData, question);
     }
 
-    private static String[] generateRound(int minNumber, int maxNumber, int maxChangeNumber) {
-        String[] array = new String[Engine.NUMBEROFELEMENTS];
-        int number = Utils.getRandomNumber(minNumber, maxNumber);
-        int changeNumber = Utils.getRandomNumber(minNumber, maxChangeNumber);
+    private static String[] generateRound() {
+        String[] roundData = new String[Engine.NUMBER_OF_ELEMENTS];
+        int firstProgressionElement = Utils.getRandomNumber(LOW_LIMIT_NUMBER, TOP_LIMIT_NUMBER);
+        int stepNumber = Utils.getRandomNumber(LOW_LIMIT_NUMBER, MAX_STEP_NUMBER);
         final int numberOfElements = 10;
-        // Образование ряда чисел
-        String[] strNumbers = createArrayOfNumbers(number, changeNumber, numberOfElements);
-        // Замещение одного числа пропуском
-        int indexOfReplaceNumber = Utils.getRandomNumber(0, numberOfElements - 1);
-        array[1] = strNumbers[indexOfReplaceNumber];
-        // Форматирование массива в требуемый формат
-        array[0] = getString(strNumbers, indexOfReplaceNumber);
-        return array;
+        String[] progression = generateProgression(firstProgressionElement, stepNumber, numberOfElements);
+        int indexOfReplacedNumber = Utils.getRandomNumber(0, numberOfElements - 1);
+        roundData[1] = progression[indexOfReplacedNumber];
+        roundData[0] = formatProgression(progression, indexOfReplacedNumber);
+        return roundData;
     }
 
-    private static String[] createArrayOfNumbers(int number, int changeNumber, int numberOfElements) {
-        int[] numbers = new int[numberOfElements];
-        String[] strNumbers = new String[numberOfElements];
-        numbers[0] = number;
-        for (var i = 1; i < numbers.length; i++) {
-            numbers[i] = numbers[i - 1] + changeNumber;
-            strNumbers[i] = String.valueOf(numbers[i]);
+    private static String[] generateProgression(int number, int changeNumber, int numberOfElements) {
+        String[] progression = new String[numberOfElements];
+        progression[0] = String.valueOf(number);
+        for (var i = 1; i < progression.length; i++) {
+            progression[i] = String.valueOf(number + i * changeNumber);
         }
-        strNumbers[0] = String.valueOf(numbers[0]);
-        return strNumbers;
+        return progression;
     }
 
-    private static String getString(String[] strNumbers, int indexOfReplaceNumber) {
-        strNumbers[indexOfReplaceNumber] = "..";
-        String strOfNumbers = Arrays.toString(strNumbers);
-        strOfNumbers = strOfNumbers.replace("[", "");
-        strOfNumbers = strOfNumbers.replace("]", "");
-        strOfNumbers = strOfNumbers.replace(",", "");
-        return strOfNumbers;
+    private static String formatProgression(String[] formattedProgression, int indexOfReplaceNumber) {
+        formattedProgression[indexOfReplaceNumber] = "..";
+        String formattedStringProgression = Arrays.toString(formattedProgression);
+        formattedStringProgression = formattedStringProgression.replace("[", "");
+        formattedStringProgression = formattedStringProgression.replace("]", "");
+        formattedStringProgression = formattedStringProgression.replace(",", "");
+        return formattedStringProgression;
     }
 }

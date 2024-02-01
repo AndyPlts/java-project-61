@@ -6,31 +6,27 @@ import hexlet.code.Utils;
 public class Calculator {
     private static final char[] OPERATORS = {'+', '-', '*'};
     public static void beginCalc() {
-        //Engine.greet();
         String question = ("What is the result of the expression?");
-        // Созданеи 2-мерного массива для хранения результатов генерации числа и правильного ответа
-        String[][] array = new String[Engine.NUMBEROFROUNDS][];
-        for (var i = 0; i < Engine.NUMBEROFROUNDS; i++) {
-            array[i] = generateRound();
+        String[][] roundData = new String[Engine.NUMBER_OF_ROUNDS][];
+        for (var i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
+            roundData[i] = generateRound();
         }
-        Engine.playing(array, question);
+        Engine.rules(roundData, question);
     }
 
     private static String[] generateRound() {
-        String[] array = new String[Engine.NUMBEROFELEMENTS];
-        // Определение максимального числа
+        String[] roundData = new String[Engine.NUMBER_OF_ELEMENTS];
         int firstNumber = Utils.getRandomNumber();
         int secondNumber = Utils.getRandomNumber();
-        final int minOperation = 0;
-        final int maxOperation = OPERATORS.length - 1;
-        // Определение операции через вывод символа из константы путём случайного выбора индекса
-        char operator = OPERATORS[Utils.getRandomNumber(minOperation, maxOperation)];
-        array[1] = count(firstNumber, secondNumber, operator);
-        array[0] = firstNumber + " " + operator + " " + secondNumber;
-        return array;
+        final int minNumberOfOperation = 0;
+        final int maxNumberOfOperation = OPERATORS.length - 1;
+        char operator = OPERATORS[Utils.getRandomNumber(minNumberOfOperation, maxNumberOfOperation)];
+        roundData[1] = calculate(firstNumber, secondNumber, operator);
+        roundData[0] = firstNumber + " " + operator + " " + secondNumber;
+        return roundData;
     }
 
-    private static String count(int firstNumber, int secondNumber, char operator) {
+    private static String calculate(int firstNumber, int secondNumber, char operator) {
         return switch (operator) {
             case '+' -> Integer.toString(firstNumber + secondNumber);
             case '-' -> Integer.toString(firstNumber - secondNumber);
