@@ -6,41 +6,41 @@ import hexlet.code.Utils;
 import java.util.Arrays;
 
 public class Progression {
-    private static final int LOW_LIMIT_NUMBER = 1;
-    private static final int TOP_LIMIT_NUMBER = 20;
-    private static final int MAX_STEP_NUMBER = 10;
-    public static void logicProgression() {
+    private static final int LOW_LIMIT = 1;
+    private static final int TOP_LIMIT = 20;
+    private static final int MAX_PROGRESSION_STEP = 10;
+    private static final int PROGRESSION_LENGTH = 10;
+    public static void begin() {
         String question = "What number is missing in the progression?";
-        String[][] roundData = new String[Engine.NUMBER_OF_ROUNDS][];
-        for (var i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
+        String[][] roundData = new String[Engine.ROUNDS_COUNT][];
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
             roundData[i] = generateRound();
         }
-        Engine.rules(roundData, question);
+        Engine.playRounds(roundData, question);
     }
 
     private static String[] generateRound() {
-        String[] roundData = new String[Engine.NUMBER_OF_ELEMENTS];
-        int firstProgressionElement = Utils.getRandomNumber(LOW_LIMIT_NUMBER, TOP_LIMIT_NUMBER);
-        int stepNumber = Utils.getRandomNumber(LOW_LIMIT_NUMBER, MAX_STEP_NUMBER);
-        final int numberOfElements = 10;
-        String[] progression = generateProgression(firstProgressionElement, stepNumber, numberOfElements);
-        int indexOfReplacedNumber = Utils.getRandomNumber(0, numberOfElements - 1);
+        String[] roundData = new String[Engine.ELEMENTS_COUNT];
+        int firstProgressionElement = Utils.generateRandomNumber(LOW_LIMIT, TOP_LIMIT);
+        int stepNumber = Utils.generateRandomNumber(LOW_LIMIT, MAX_PROGRESSION_STEP);
+        String[] progression = generateProgression(firstProgressionElement, stepNumber, PROGRESSION_LENGTH);
+        int indexOfReplacedNumber = Utils.generateRandomNumber(0, PROGRESSION_LENGTH - 1);
         roundData[1] = progression[indexOfReplacedNumber];
         roundData[0] = formatProgression(progression, indexOfReplacedNumber);
         return roundData;
     }
 
-    private static String[] generateProgression(int number, int changeNumber, int numberOfElements) {
+    private static String[] generateProgression(int firstValue, int progressionStep, int numberOfElements) {
         String[] progression = new String[numberOfElements];
-        progression[0] = String.valueOf(number);
+        progression[0] = String.valueOf(firstValue);
         for (var i = 1; i < progression.length; i++) {
-            progression[i] = String.valueOf(number + i * changeNumber);
+            progression[i] = String.valueOf(firstValue + i * progressionStep);
         }
         return progression;
     }
 
-    private static String formatProgression(String[] formattedProgression, int indexOfReplaceNumber) {
-        formattedProgression[indexOfReplaceNumber] = "..";
+    private static String formatProgression(String[] formattedProgression, int replacingIndex) {
+        formattedProgression[replacingIndex] = "..";
         String formattedStringProgression = Arrays.toString(formattedProgression);
         formattedStringProgression = formattedStringProgression.replace("[", "");
         formattedStringProgression = formattedStringProgression.replace("]", "");

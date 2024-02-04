@@ -5,20 +5,21 @@ import hexlet.code.Utils;
 
 public class IsEven {
 
-    public static void beginIsEven() {
+    public static final int MAX_VALUE = 1000;
+
+    public static void begin() {
         String question = "Answer 'yes' if the number is even, "
                 + "otherwise answer 'no'.";
-        String[][] roundData = new String[Engine.NUMBER_OF_ROUNDS][];
-        for (var i = 0; i < Engine.NUMBER_OF_ROUNDS; i++) {
+        String[][] roundData = new String[Engine.ROUNDS_COUNT][];
+        for (var i = 0; i < Engine.ROUNDS_COUNT; i++) {
             roundData[i] = generateRound();
         }
-        Engine.rules(roundData, question);
+        Engine.playRounds(roundData, question);
     }
 
     private static String[] generateRound() {
-        String[] roundData = new String[Engine.NUMBER_OF_ELEMENTS];
-        final int maxValue = 1000;
-        var checkedNumber = Utils.getRandomNumber(maxValue);
+        String[] roundData = new String[Engine.ELEMENTS_COUNT];
+        var checkedNumber = Utils.generateRandomNumber(MAX_VALUE);
         roundData[0] = Integer.toString(checkedNumber);
         roundData[1] = isEven(checkedNumber) ? "yes" : "no";
         return roundData;

@@ -11,19 +11,19 @@ import java.util.Scanner;
 public class App {
 
     public static void main(String[] args) {
-        final int numberOfEven = 2;
-        final int numberOfCalculator = 3;
-        final int numberOfGCD = 4;
-        final int numberOfProgression = 5;
-        final int numberOfPrime = 6;
+        final int evenGameIndex = 2;
+        final int calcGameIndex = 3;
+        final int gcdGameIndex = 4;
+        final int progressionGameIndex = 5;
+        final int primeGameIndex = 6;
         switch (chooseGame()) {
             case 1 -> Cli.greeting();
-            case numberOfEven -> IsEven.beginIsEven();
-            case numberOfCalculator -> Calculator.beginCalc();
-            case numberOfGCD -> GCD.beginGCD();
-            case numberOfProgression -> Progression.logicProgression();
-            case numberOfPrime -> Prime.beginPrime();
-            default -> throw new Error("Error");
+            case evenGameIndex -> IsEven.begin();
+            case calcGameIndex -> Calculator.begin();
+            case gcdGameIndex -> GCD.begin();
+            case progressionGameIndex -> Progression.begin();
+            case primeGameIndex -> Prime.begin();
+            default -> throw new RuntimeException("Error");
         }
     }
 
