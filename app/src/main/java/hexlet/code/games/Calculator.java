@@ -22,16 +22,16 @@ public class Calculator {
         int secondNumber = Utils.generateRandomNumber(MAX_VALUE);
         final int maxCountOfOperation = OPERATORS.length - 1;
         char operator = OPERATORS[Utils.generateRandomNumber(MIN_COUNT_OF_OPERATION, maxCountOfOperation)];
-        roundData[1] = calculate(firstNumber, secondNumber, operator);
+        roundData[1] = Integer.toString(calculate(firstNumber, secondNumber, operator));
         roundData[0] = firstNumber + " " + operator + " " + secondNumber;
         return roundData;
     }
 
-    private static String calculate(int firstNumber, int secondNumber, char operator) {
+    private static int calculate(int firstNumber, int secondNumber, char operator) {
         return switch (operator) {
-            case '+' -> Integer.toString(firstNumber + secondNumber);
-            case '-' -> Integer.toString(firstNumber - secondNumber);
-            case '*' -> Integer.toString(firstNumber * secondNumber);
+            case '+' -> firstNumber + secondNumber;
+            case '-' -> firstNumber - secondNumber;
+            case '*' -> firstNumber * secondNumber;
             default -> throw new RuntimeException("Error");
         };
     }

@@ -6,7 +6,7 @@ public class Utils {
     }
 
     public static int generateRandomNumber(int maxNumber) {
-        return (int) (Math.random() * (maxNumber + 1));
+        return generateRandomNumber(0, maxNumber);
     }
 
 }
